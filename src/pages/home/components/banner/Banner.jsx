@@ -2,7 +2,7 @@ import { IoMdSearch, IoIosCalendar } from "react-icons/io";
 import Select from "./select/BannerSelect";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { jarallax, jarallaxVideo } from "jarallax";
 import "jarallax/dist/jarallax.min.css";
@@ -18,13 +18,20 @@ export default function Banner() {
     setOpen(!open);
   };
 
-  jarallax(document.querySelectorAll(".jarallax"), {
-    speed: 0.2,
-    videoSrc: 'https://www.youtube.com/watch?v=JPe2mwq96cw'
-  });
+  // jarallax(document.querySelectorAll(".jarallax"), {
+  //   speed: 0.2,
+  //   videoSrc: 'https://www.youtube.com/watch?v=JPe2mwq96cw'
+  // });
+
+  useEffect(() => {
+    jarallax(document.querySelectorAll(".jarallax"), {
+      speed: 0.2,
+      videoSrc: 'https://www.youtube.com/watch?v=JPe2mwq96cw'
+    });
+  }, [])
 
   return (
-    <div className="banner jarallax">
+    <div className="banner jarallax" >
       <div className="row">
         <h2 className="banner_title">Where do you want to go?</h2>
         <p className="banner_tagline" style={{ color: "white" }}>
