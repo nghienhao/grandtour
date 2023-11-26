@@ -1,0 +1,152 @@
+// Variables
+$primary-color: white;
+$default-color: black;
+$tagline-color: #8d9199;
+
+// Widths
+$max-width: 1425px;
+
+@import "../../mixin.scss";
+
+
+.navbar {
+    background-color: transparent;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+
+    @include tablet {
+        padding: 0 20px;
+    }
+    &_wrapper {
+        height: 74px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+        font-size: 13px;
+
+
+        &_list {
+            display: flex;
+            align-items: center;
+            list-style: none;
+
+
+
+            .mobile_menu {
+                font-size: 16px;
+                cursor: pointer;
+                display: flex;
+
+
+                @include desktop {
+                    display: flex;
+                    align-items: flex-end;
+                    margin-left: 10px;
+                    padding: 0;
+                }
+            }
+
+            >li {
+                padding: 26px 17px 26px 0;
+                position: relative;
+                display: flex;
+                align-items: center;
+                margin: 0 5px 0 0;
+
+                @include desktop {
+                    display: none;
+                }
+
+                a {
+                    // color: $primary-color;
+                    margin-right: 4px;
+                }
+
+                svg {
+                    // color: $primary-color;
+                }
+
+                ul.sub-menu {
+                    opacity: 0;
+                    background-color: $primary-color;
+                    color: $default-color;
+                    position: absolute;
+                    border-radius: 5px;
+                    top: 70px;
+                    margin-left: -20px;
+                    margin-top: -5px;
+                    box-shadow: 0 5px 40px rgba(0, 0, 0, .15);
+                    transform: scale(0.8);
+                    transition: all 0.1s ease-out;
+                    min-width: 240px;
+
+
+                    >li {
+                        margin: 0 20px;
+
+                    }
+
+                    a {
+                        display: block;
+                        width: 100%;
+                        padding: 10px 0;
+                        color: $default-color;
+                    }
+
+                    li+li {
+                        border-top: 1px solid #dce0e0;
+
+                    }
+
+
+                }
+
+                &:hover {
+                    ul {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.moveDown {
+    position: fixed !important;
+    animation: moveDown .2s;
+    -webkit-animation: moveDown .2s;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .15);
+    -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, .15);
+    transition: all 1s linear;
+}
+
+.hideFade {
+    transition: all 1s linear;
+    animation: hideFade .2s;
+    -webkit-animation: hideFade .2s;
+}
+
+@keyframes hideFade {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes moveDown {
+    0% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
